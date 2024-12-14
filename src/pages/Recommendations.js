@@ -1,9 +1,15 @@
-const Recommendations = () => (
+import { Outlet } from "react-router-dom";
+import RecommenderNavbar from "../components/RecommenderNavbar";
+
+const Recommendations = () => {
+  return (
     <div>
-      <h1 className="text-2xl font-bold">Crop and Fertilizer Recommendations</h1>
-      <p className="mt-4">Get personalized suggestions based on weather and soil conditions.</p>
+      <RecommenderNavbar />
+      <div className="container mx-auto px-4 py-6">
+        <Outlet /> 
+      </div>
     </div>
   );
-  
-  export default Recommendations;
-  
+};
+
+export default Recommendations;
