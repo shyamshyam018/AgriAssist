@@ -5,9 +5,9 @@ const NewsHero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    { url: "https://tinyurl.com/agriimg01", caption: "Agriculture News 1" },
-    { url: "https://tinyurl.com/agriimg02", caption: "Farming Trends 2" },
-    { url: "https://tinyurl.com/agriimg03", caption: "Market Updates 3" },
+    { url: "/assets/images/NewsBanner1.jpg", caption: "Rural Farmers Contributiion Rise" },
+    { url: "/assets/images/NewsBanner2.jpg", caption: "Reduced Reserve Prices" },
+    { url: "/assets/images/NewsBanner3.jpg", caption: "FPO Demands Rise" },
   ];
 
   const marqueeText = [

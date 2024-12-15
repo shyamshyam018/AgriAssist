@@ -8,13 +8,13 @@ const NewsList = ({ articles = [] }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {articles.map((article, index) => (
+      {articles.map((article) => (
         <NewsCard
-          key={index}
+          key={article.id}
+          id={article.id}
           title={article.title}
           description={article.description}
           imageUrl={article.imageUrl}
-          link={article.link}
         />
       ))}
     </div>
