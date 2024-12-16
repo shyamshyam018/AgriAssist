@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex flex-col h-[720px]">
+    <div className="flex flex-col h-[730px]">
       {/* Content section with custom height */}
       <div className="container mx-auto px-4 py-16 h-[735px] overflow-auto">
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">Contact Us</h1>

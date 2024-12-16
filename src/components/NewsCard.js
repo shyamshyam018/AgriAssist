@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const NewsCard = ({ id, title, description, imageUrl }) => {
   // Truncate the description to 8-10 words
-  const truncatedDescription = description.split(" ").slice(0, 10).join(" ") + "...";
+  const truncatedDescription = description.split(" ").slice(0, 30).join(" ") + "...";
 
   return (
     <div className="bg-white rounded shadow-lg overflow-hidden">
