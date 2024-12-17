@@ -23,6 +23,7 @@ const App = () => {
     { id: 6, title: "News 6", description: "Learn why this fall is crucial for food systems governance as world leaders and food system actors gather to discuss solutions to biodiversity loss, climate change and land This is the first part of an articles series based on based on conversations held during COP16 (Cali) and COP29 (Baku) side events by leading food system actors, who explored solutions provided by agroecology. Learn why this fall is crucial for food systems governance as world leaders and food system actors gather to discuss solutions to biodiversity loss, climate change and land degradation. This is the first part of an articles series based on based on conversations held during COP16 (Cali) and COP29 (Baku) side events by leading food system actors, who explored solutions provided by agroecology. Learn why this fall is crucial for food systems governance as world leaders and food system actors gather to discuss solutions to biodiversity loss, climate change and land degradation. This is the first part of an articles series based on based on conversations held during COP16 (Cali) and COP29 (Baku) side events by leading food system actors, who explored solutions provided by agroecology. Learn why this fall is crucial for food systems governance as world leaders and food system actors gather to discuss solutions to biodiversity loss, climate change and land degradation. This is the first part of an articles series based on based on conversations held during COP16 (Cali) and COP29 (Baku) side events by leading food system actors, who explored solutions provided by agroecology. Learn why this fall is crucial for food systems governance as world leaders and food system actors gather to discuss solutions to biodiversity loss, climate change and land degradation. This is the first part of an articles series based on based on conversations held during COP16 (Cali) and COP29 (Baku) side events by leading food system actors, who explored solutions provided by agroecology. Learn why this fall is crucial for food systems governance as world leaders and food system actors gather to discuss solutions to biodiversity loss, climate change and land degradation.  6", imageUrl: "/assets/images/SustainableFarming.jpg" },
   ];
 
+
   return (
     <Router>
       <Routes>
@@ -32,15 +33,10 @@ const App = () => {
           <Route path="news" element={<NewsApp articles={articles} />}>
             <Route index element={<NewsApp articles={articles} />} />
             <Route path="aboutus" element={<AboutUs />} />
-            <Route path="contact" element={<Contact />} />
-            
-          </Route>
+            <Route path="contact" element={<Contact />} />  
+          </Route>         
           <Route path="news/:id" element={<NewsPage articles={articles} />} />
-
-
-
           <Route path="plant-research" element={<PlantResearch />} />
-
 
           <Route path="/" element={<Home />}>
             <Route index element={<HomeContent />} />

@@ -1,76 +1,95 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import CropCard from "../../components/dictionary/CropCard";
+import { crops } from "../../utils/CropsData";
 
 const Recommender = () => {
   const [formData, setFormData] = useState({
-    location: "",
-    soilType: "",
-    temperature: "",
-    rainfall: "",
+    N_SOIL: "",
+    P_SOIL: "",
+    K_SOIL: "",
+    TEMPERATURE: "",
+    HUMIDITY: "",
+    ph: "",
+    RAINFALL: "",
+    CROP_PRICE: "",
   });
+  const [predictedCrop, setPredictedCrop] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    // Add API call logic to backend/ML model
+    setLoading(true);
+
+    try {
+      const response = await axios.post("http://127.0.0.1:5000/predict", formData);
+      const predictedCropName = response.data.predicted_crop;
+      const matchedCrop = crops.find(crop => crop.name === predictedCropName);
+
+      if (matchedCrop) {
+        setPredictedCrop(matchedCrop);
+      } else {
+        console.error("Crop not found in database");
+        setPredictedCrop(null);
+      }
+    } catch (error) {
+      console.error("Error fetching prediction:", error);
+      setPredictedCrop(null);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Get Crop Recommendations</h2>
-      <form onSubmit={handleSubmit} className="space-y-1.5">
-        <div>
-          <label className="block">Location:</label>
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-            required
-          />
+    <div className="container mx-auto p-6">
+      <h2 className="text-3xl font-semibold text-center text-green-600 mb-6">Crop Recommender</h2>
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {Object.keys(formData).map((key) => (
+            <div key={key} className="flex flex-col bg-white p-4 rounded-lg shadow-lg">
+              <label htmlFor={key} className="font-medium text-gray-700 mb-2">
+                {key.replace("_", " ")}
+              </label>
+              <input
+                id={key}
+                type="number"
+                name={key}
+                value={formData[key]}
+                onChange={handleChange}
+                required
+                className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              />
+            </div>
+          ))}
         </div>
-        <div>
-          <label className="block">Soil Type:</label>
-          <input
-            type="text"
-            name="soilType"
-            value={formData.soilType}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block">Temperature (°C):</label>
-          <input
-            type="number"
-            name="temperature"
-            value={formData.temperature}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block">Rainfall (mm):</label>
-          <input
-            type="number"
-            name="rainfall"
-            value={formData.rainfall}
-            onChange={handleChange}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-          Get Recommendations
+
+        <button
+          type="submit"
+          className="w-full py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none"
+          disabled={loading}
+        >
+          {loading ? "Loading..." : "Get Recommended Crop"}
         </button>
       </form>
+
+      {predictedCrop && !loading && (
+        <div className="mt-6">
+          <CropCard crop={predictedCrop} onClick={(crop) => console.log(crop)} />
+        </div>
+      )}
+
+      {loading && !predictedCrop && (
+        <div className="mt-6 text-center text-gray-500">Fetching the best crop for you...</div>
+      )}
     </div>
   );
 };
