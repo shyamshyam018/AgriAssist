@@ -30,8 +30,12 @@ const Dashboard = () => (
       </div>
 
       {/* Bar Graph with Full Width */}
-      <div className="bg-white rounded-lg  p-6 col-span-2 ">
+      <div className="bg-white rounded-lg  p-6 col-span-1 ">
         <BarGraph data={GraphData} />
+      </div>
+
+      <div className="bg-white rounded-lg p-6 flex justify-center items-center h-96 col-span-1">
+        <BarChart chartData={BarChartData} />
       </div>
 
       {/* Commodity Price Table */}

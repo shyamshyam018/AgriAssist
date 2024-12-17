@@ -1,70 +1,42 @@
-import React, { useRef } from "react";
+import React from "react";
 import "../../styles/Scrollable.css";
 
-// Sample data for cards
-const crops = [
-  { id: 1, name: "Rice", image: "https://via.placeholder.com/200x150?text=Rice" },
-  { id: 2, name: "Wheat", image: "https://via.placeholder.com/200x150?text=Wheat" },
-  { id: 3, name: "Maize", image: "https://via.placeholder.com/200x150?text=Maize" },
-  { id: 4, name: "Cotton", image: "https://via.placeholder.com/200x150?text=Cotton" },
-  { id: 5, name: "Sugarcane", image: "https://via.placeholder.com/200x150?text=Sugarcane" },
-  { id: 6, name: "Barley", image: "https://via.placeholder.com/200x150?text=Barley" },
-  { id: 7, name: "Millets", image: "https://via.placeholder.com/200x150?text=Millets" },
-  { id: 8, name: "Pulses", image: "https://via.placeholder.com/200x150?text=Pulses" },
-];
-
-const ScrollableSection = () => {
-  const scrollRef = useRef(null);
-
-  // Function to handle scrolling
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 300; // Adjust scroll distance
-      scrollRef.current.scrollLeft += direction === "left" ? -scrollAmount : scrollAmount;
-    }
-  };
-
+const ScrollableSection = ({ crops, onCropClick, scrollRef }) => {
   return (
-    <div className="relative w-full p-6">
-      {/* Left Arrow */}
-      <button
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-700"
-        onClick={() => scroll("left")}
-      >
-        &#8592;
-      </button>
+    <div className="flex overflow-x-auto no-scrollbar space-x-6 py-6" ref={scrollRef}>
+      {crops.map((crop) => (
+        <div
+          key={crop.id}
+          className="min-w-[350px] max-w-[250px] min-h-[450px] bg-gradient-to-r from-green-600 via-emerald-500 to-green-600 shadow-lg rounded-lg p-6 text-center cursor-pointer transform transition-all hover:scale-105 hover:shadow-1xl"
+          onClick={() => onCropClick(crop)}
+        >
+         
+          <img
+            src={crop.image}
+            alt={crop.name}
+            className="w-full h-48 object-cover rounded-md mb-4 shadow-xl"
+          />
+          <h3 className="text-2xl font-bold text-white mb-2">{crop.name}</h3>
 
-      {/* Scrollable Container */}
-      <div
-        ref={scrollRef}
-        className="flex overflow-x-auto no-scrollbar space-x-4"
-      >
-        {crops.map((crop) => (
-          <div
-            key={crop.id}
-            className="min-w-[200px] max-w-[200px] bg-white shadow-lg rounded-lg p-4 text-center"
-          >
-            <img
-              src={crop.image}
-              alt={crop.name}
-              className="w-full h-32 object-cover rounded-md mb-3"
-            />
-            <h3 className="text-lg font-semibold text-gray-800">{crop.name}</h3>
+          <p className=" font-semibold text-black-300 bg-gray-200 inline-block px-4  rounded-full mb-2">
+            {crop.season}
+          </p>
+
+          <div className="mt-4">
+            <p className="text-md font-medium text-white mb-1">
+              <span className="text-yellow-300">Soil:</span> {crop.soil}
+            </p>
+            <p className="text-md font-medium text-white mb-1">
+              <span className="text-yellow-300">Temp:</span> {crop.temp}
+            </p>
+            <p className="text-md font-medium text-white mb-1">
+              <span className="text-yellow-300">Water:</span> {crop.water}
+            </p>
           </div>
-        ))}
-      </div>
-
-      {/* Right Arrow */}
-      <button
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-700"
-        onClick={() => scroll("right")}
-      >
-        &#8594;
-      </button>
+        </div>
+      ))}
     </div>
   );
 };
-
-
 
 export default ScrollableSection;

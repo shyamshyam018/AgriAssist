@@ -1,57 +1,15 @@
-import React, { useState, useRef } from "react";
-import '../../styles/Dictionary.css';
+import React, { useState, useRef, useEffect } from "react";
+import "../../styles/Dictionary.css";
 import ScrollableSection from "../../components/dictionary/Scrollable";
-
-// Sample crop data with images
-const crops = [
-  { 
-    name: "Rice", 
-    soil: "Clayey", 
-    temp: "20-35°C", 
-    water: "High", 
-    season: "Kharif",
-    image: "https://via.placeholder.com/150?text=Rice" 
-  },
-  { 
-    name: "Wheat", 
-    soil: "Loamy", 
-    temp: "10-25°C", 
-    water: "Moderate", 
-    season: "Rabi",
-    image: "https://via.placeholder.com/150?text=Wheat" 
-  },
-  { 
-    name: "Maize", 
-    soil: "Well-drained", 
-    temp: "21-27°C", 
-    water: "Low", 
-    season: "Kharif/Rabi",
-    image: "https://via.placeholder.com/150?text=Maize" 
-  },
-  { 
-    name: "Sugarcane", 
-    soil: "Deep Loamy", 
-    temp: "21-27°C", 
-    water: "Very High", 
-    season: "Annual",
-    image: "https://via.placeholder.com/150?text=Sugarcane" 
-  },
-  { 
-    name: "Cotton", 
-    soil: "Black Soil", 
-    temp: "25-35°C", 
-    water: "Low", 
-    season: "Kharif",
-    image: "https://via.placeholder.com/150?text=Cotton" 
-  }
-];
+import { crops } from "../../utils/CropsData";
+import CropCard from "../../components/dictionary/CropCard";  // Import the new component
 
 const Dictionary = () => {
   const [search, setSearch] = useState("");
   const [filterSeason, setFilterSeason] = useState("All");
+  const [selectedCrop, setSelectedCrop] = useState(null);
   const scrollRef = useRef(null);
 
-  // Filter crops based on search input and selected season
   const filteredCrops = crops.filter((crop) => {
     return (
       crop.name.toLowerCase().includes(search.toLowerCase()) &&
@@ -59,22 +17,36 @@ const Dictionary = () => {
     );
   });
 
-  // Function to handle scrolling
-  const scroll = (direction) => {
+  const handleWheel = (e) => {
     if (scrollRef.current) {
-      const scrollAmount = 300; // Adjust scroll distance
-      scrollRef.current.scrollLeft += direction === "left" ? -scrollAmount : scrollAmount;
+      e.preventDefault();
+      const scrollAmount = e.deltaY > 0 ? 300 : -300;
+      scrollRef.current.scrollLeft += scrollAmount;
     }
   };
 
+  const handleCropClick = (crop) => {
+    setSelectedCrop(crop);
+  };
+
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (scrollContainer) {
+      scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("wheel", handleWheel);
+      }
+    };
+  }, []);
+
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      {/* Title */}
       <h2 className="text-3xl font-bold mb-6 text-center">Crop Dictionary</h2>
 
-      {/* Search Bar and Filters */}
       <div className="flex flex-col md:flex-row items-center justify-center mb-6 gap-4">
-        {/* Search Bar */}
         <input
           type="text"
           placeholder="Search for a crop..."
@@ -82,8 +54,6 @@ const Dictionary = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="w-full md:w-1/2 p-3 border border-gray-300 rounded shadow-sm"
         />
-
-        {/* Filter Dropdown */}
         <select
           value={filterSeason}
           onChange={(e) => setFilterSeason(e.target.value)}
@@ -95,10 +65,18 @@ const Dictionary = () => {
           <option value="Kharif/Rabi">Kharif/Rabi</option>
         </select>
       </div>
-      <ScrollableSection />
-      <ScrollableSection />
 
-     
+      <div className="relative w-full mt-10">
+        <ScrollableSection crops={filteredCrops} onCropClick={handleCropClick} scrollRef={scrollRef} />
+      </div>
+
+      {filteredCrops.length === 0 && (
+        <div className="text-center mt-6 p-6 bg-white shadow-lg rounded-lg">
+          <h3 className="text-xl font-semibold">No items found</h3>
+        </div>
+      )}
+
+      {selectedCrop && <CropCard crop={selectedCrop} onClick={handleCropClick} />}
     </div>
   );
 };
