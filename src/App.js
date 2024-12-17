@@ -33,7 +33,7 @@ const App = () => {
           <Route path="news" element={<NewsApp articles={articles} />}>
             <Route index element={<NewsApp articles={articles} />} />
             <Route path="aboutus" element={<AboutUs />} />
-            <Route path="contact" element={<Contact />} />  
+    
           </Route>         
           <Route path="news/:id" element={<NewsPage articles={articles} />} />
           <Route path="plant-research" element={<PlantResearch />} />
@@ -58,3 +58,18 @@ const App = () => {
 };
 
 export default App;
+
+// import { BrowserRouter as Routes,Router,Route } from "react-router-dom";
+// import MainLayout from "./components/MainLayout";
+
+// const App = () => {
+//   return (  
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<MainLayout/>}>
+//           <Route index element={<MainLayout/>}/>
+//         </Route>
+//       </Routes>
+//     </Router>
+//   );
+// };
