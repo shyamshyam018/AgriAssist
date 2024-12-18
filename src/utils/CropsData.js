@@ -321,21 +321,356 @@ export const crops = [
     benefits: "Cabbage is rich in vitamins C and K, antioxidants, and fiber. It helps in improving digestive health and supporting the immune system.",
     demerits: "Cabbage is vulnerable to pests like aphids and cabbage worms and can be affected by diseases like black rot."
   },
-  { 
-    id: 20,
-    name: "Cauliflower", 
-    soil: "Loamy", 
-    temp: "15-20°C", 
-    water: "Moderate", 
-    season: "Rabi",
-    image: "/assets/crops/cauliflower.jpg", 
-    description: "Cauliflower is a cool-season vegetable closely related to cabbage. It is grown for its white, edible flower head, which is used in a variety of dishes. Like cabbage, cauliflower requires cool temperatures and well-drained soil.",
-    types: [
-      { name: "White Cauliflower", benefits: "Common variety, used in many dishes", demerits: "Sensitive to heat, can yellow under stress" },
-      { name: "Purple Cauliflower", benefits: "Rich in antioxidants, used in salads", demerits: "Less popular, difficult to grow" }
-    ],
-    specificNeeds: "Cauliflower requires well-drained loamy soil and grows best in temperatures between 15°C and 20°C. It needs moderate water and is sensitive to heat stress.",
-    benefits: "Cauliflower is rich in vitamins C and K, fiber, and antioxidants. It supports immune function and has anti-inflammatory properties.",
-    demerits: "Cauliflower is highly sensitive to temperature fluctuations, and excessive heat can cause it to flower prematurely, affecting quality."
-  }
+    { 
+      id: 20,
+      name: "Cauliflower", 
+      soil: "Loamy", 
+      temp: "15-20°C", 
+      water: "Moderate", 
+      season: "Rabi",
+      image: "/assets/crops/cauliflower.jpg", 
+      description: "Cauliflower is a cool-season vegetable closely related to cabbage. It is grown for its white, edible flower head, which is used in a variety of dishes. Like cabbage, cauliflower requires cool temperatures and well-drained soil.",
+      types: [
+        { name: "White Cauliflower", benefits: "Common variety, used in many dishes", demerits: "Sensitive to heat, can yellow under stress" },
+        { name: "Purple Cauliflower", benefits: "Rich in antioxidants, used in salads", demerits: "Less popular, difficult to grow" }
+      ],
+      specificNeeds: "Cauliflower requires well-drained loamy soil and grows best in temperatures between 15°C and 20°C. It needs moderate water and is sensitive to heat stress.",
+      benefits: "Cauliflower is rich in vitamins C and K, fiber, and antioxidants. It supports immune function and has anti-inflammatory properties.",
+      demerits: "Cauliflower is highly sensitive to temperature fluctuations, and excessive heat can cause it to flower prematurely, affecting quality."
+    },
+    { 
+      id: 21,
+      name: "ChickPea", 
+      soil: "Well-drained sandy loam",
+      temp: "18-30°C",
+      water: "Low",
+      season: "Rabi",
+      image: "/assets/crops/chickpea.jpg",
+      description: "Chickpea is a legume that is rich in protein and fiber, commonly used in various cuisines. It is grown mainly in dry climates and is known for its drought resistance.",
+      types: [
+        { name: "Desi", benefits: "Rich in protein, hardy", demerits: "Small seeds, lower yield" },
+        { name: "Kabuli", benefits: "Larger seeds, higher market value", demerits: "More susceptible to diseases" }
+      ],
+      specificNeeds: "Chickpeas require well-drained soils and prefer moderate temperatures. It thrives in a pH range of 6 to 7.5.",
+      benefits: "Chickpeas are rich in proteins and fibers, making them great for digestion and overall health.",
+      demerits: "Chickpeas are susceptible to fungal diseases if exposed to excess moisture."
+    },  
+    { 
+      id: 22,
+      name: "KidneyBeans", 
+      soil: "Loamy",
+      temp: "25-30°C",
+      water: "Moderate",
+      season: "Kharif",
+      image: "/assets/crops/kidneybeans.jpg",
+      description: "Kidney beans are a legume widely used in various dishes across the world. They are rich in protein, fiber, and essential minerals.",
+      types: [
+        { name: "Red Kidney Beans", benefits: "High protein content, rich in fiber", demerits: "Can cause digestive issues if not cooked properly" },
+        { name: "White Kidney Beans", benefits: "Low in fat, high in protein", demerits: "Takes longer to cook" }
+      ],
+      specificNeeds: "Kidney beans require well-drained soils with a pH of 6 to 7. It thrives in a warm climate and requires moderate watering.",
+      benefits: "Kidney beans are excellent sources of protein and are a good addition to a vegetarian diet.",
+      demerits: "The presence of toxins in raw kidney beans can be harmful if not properly cooked."
+    },
+      { 
+        id: 23,
+        name: "PigeonPeas", 
+        soil: "Sandy loam",
+        temp: "25-35°C",
+        water: "Moderate",
+        season: "Kharif",
+        image: "/assets/crops/pigeonpeas.jpg",
+        description: "Pigeon peas are a legume crop grown in tropical and subtropical regions. It is drought-resistant and grows well in poor soils.",
+        types: [
+          { name: "Desi Pigeon Pea", benefits: "Hardy, grows well in dry conditions", demerits: "Smaller seeds, lower yield" },
+          { name: "Kabuli Pigeon Pea", benefits: "Larger seeds, better market value", demerits: "Sensitive to pests" }
+        ],
+        specificNeeds: "Pigeon peas require a warm climate and well-drained soils. It grows well in a pH range of 6 to 7.",
+        benefits: "Pigeon peas are rich in protein and fiber and are an excellent source of plant-based protein.",
+        demerits: "Pigeon peas are susceptible to pests and diseases if not managed properly."
+      },
+    
+      { 
+        id: 24,
+        name: "MothBeans", 
+        soil: "Sandy loam",
+        temp: "25-35°C",
+        water: "Low",
+        season: "Kharif",
+        image: "/assets/crops/moth-beans.jpg",
+        description: "Moth beans are drought-resistant legumes grown primarily in arid and semi-arid regions of India. They are rich in protein and fiber.",
+        types: [
+          { name: "Moth Bean Varieties", benefits: "Drought-resistant, rich in protein", demerits: "Requires careful management of soil moisture" }
+        ],
+        specificNeeds: "Moth beans grow well in hot, dry conditions and sandy loam soils. It thrives in a pH range of 6 to 7.5.",
+        benefits: "Moth beans are a great source of protein and fiber, ideal for arid regions.",
+        demerits: "They require careful water management, as over-watering can lead to poor yields."
+      },
+    
+      { 
+        id: 25,
+        name: "MungBean", 
+        soil: "Loamy",
+        temp: "25-35°C",
+        water: "Moderate",
+        season: "Kharif",
+        image: "/assets/crops/mungbeans.jpg",
+        description: "Mung beans are a popular legume used in various cuisines. They are rich in protein, vitamins, and minerals.",
+        types: [
+          { name: "Green Mung Bean", benefits: "Quick growing, rich in protein", demerits: "Requires well-drained soils" }
+        ],
+        specificNeeds: "Mung beans require well-drained soils with a pH range of 6 to 7. Regular watering is needed for healthy growth.",
+        benefits: "Mung beans are highly nutritious, rich in protein and vitamins, and promote digestive health.",
+        demerits: "Mung beans can be susceptible to fungal diseases if exposed to excessive moisture."
+      },
+    
+      { 
+        id: 26,
+        name: "Blackgram", 
+        soil: "Clayey",
+        temp: "25-35°C",
+        water: "Moderate",
+        season: "Kharif",
+        image: "/assets/crops/BlackGram.jpg",
+        description: "Blackgram, also known as Urad, is a legume used in Indian cuisine. It is rich in protein and widely grown in tropical and subtropical climates.",
+        types: [
+          { name: "Blackgram Varieties", benefits: "Rich in protein and iron", demerits: "Needs moderate watering and pest control" }
+        ],
+        specificNeeds: "Blackgram requires well-drained soils and a warm climate. It grows best in soils with a pH of 6 to 7.",
+        benefits: "Blackgram is an excellent source of protein, iron, and fiber.",
+        demerits: "It is prone to pest attacks and needs careful management of irrigation."
+      },
+    
+      { 
+        id: 27,
+        name: "Lentil", 
+        soil: "Well-drained loamy",
+        temp: "15-25°C",
+        water: "Low",
+        season: "Rabi",
+        image: "/assets/crops/lentil.jpeg",
+        description: "Lentils are one of the oldest cultivated crops, known for their high nutritional value. They are an excellent source of plant-based protein.",
+        types: [
+          { name: "Red Lentil", benefits: "Quick-growing, high in protein", demerits: "Susceptible to diseases" },
+          { name: "Green Lentil", benefits: "Rich in fiber, easy to digest", demerits: "Takes longer to cook" }
+        ],
+        specificNeeds: "Lentils require well-drained soils and grow best in cooler climates with a pH range of 6 to 7. They need moderate watering.",
+        benefits: "Lentils are rich in proteins and fiber, making them ideal for a vegetarian diet.",
+        demerits: "Lentils are vulnerable to pests and need pest control measures."
+      },
+    
+      { 
+        id: 28,
+        name: "Pomegranate", 
+        soil: "Well-drained sandy loam",
+        temp: "20-30°C",
+        water: "Moderate",
+        season: "Rabi",
+        image: "/assets/crops/pomogranate.png",
+        description: "Pomegranate is a fruit-bearing shrub or small tree grown primarily in arid and semi-arid climates. It is rich in antioxidants and vitamins.",
+        types: [
+          { name: "Sweet Pomegranate", benefits: "High in antioxidants and vitamins", demerits: "Requires long growing period" },
+          { name: "Sour Pomegranate", benefits: "Better for juices and processing", demerits: "Not suitable for fresh consumption" }
+        ],
+        specificNeeds: "Pomegranate thrives in well-drained soils and requires warm temperatures with moderate watering.",
+        benefits: "Pomegranates are high in antioxidants and vitamins, promoting heart health.",
+        demerits: "It is sensitive to frost and needs a warm climate for best results."
+      },
+    
+      { 
+        id: 29,
+        name: "Banana", 
+        soil: "Well-drained loamy",
+        temp: "25-30°C",
+        water: "High",
+        season: "All year",
+        image: "/assets/crops/banana.jpg",
+        description: "Bananas are one of the most widely consumed fruits in the world. They thrive in tropical climates and require regular watering to produce high-quality fruit.",
+        types: [
+          { name: "Cavendish", benefits: "High yield, disease resistant", demerits: "Prone to certain diseases like Panama wilt" },
+          { name: "Red Banana", benefits: "Rich in antioxidants, higher market value", demerits: "Smaller yield" }
+        ],
+        specificNeeds: "Bananas need warm temperatures, consistent rainfall, and well-drained soils. They thrive in a pH range of 5.5 to 7.0.",
+        benefits: "Bananas are rich in potassium and vitamin C, beneficial for heart health and digestion.",
+        demerits: "Bananas require a lot of water, and poor drainage can lead to root rot."
+      },
+    
+      { 
+        id: 30,
+        name: "Mango", 
+        soil: "Well-drained sandy loam",
+        temp: "24-30°C",
+        water: "Moderate",
+        season: "Summer",
+        image: "/assets/crops/mango.jpeg",
+        description: "Mangoes are tropical fruits known for their sweetness and versatility in cooking. They thrive in warm climates and are highly valued around the world.",
+        types: [
+          { name: "Alphonso", benefits: "Sweet, rich flavor, high market value", demerits: "Susceptible to pests and diseases" },
+          { name: "Kesar", benefits: "Sweet and aromatic, high yield", demerits: "Requires specific climate conditions" }
+        ],
+        specificNeeds: "Mango trees need a warm climate, with well-drained soils. They prefer a pH of 5.5 to 7.5 and moderate irrigation.",
+        benefits: "Mangoes are rich in vitamins A and C, antioxidants, and provide a good source of dietary fiber.",
+        demerits: "Mango trees need a consistent warm climate and can be affected by drought and pest infestations."
+      },
+    
+      { 
+        id: 31,
+        name: "Grapes", 
+        soil: "Loamy",
+        temp: "15-25°C",
+        water: "Moderate",
+        season: "Summer",
+        image: "/assets/crops/grapes.jpg",
+        description: "Grapes are grown for fresh consumption and wine production. They require a temperate climate and well-drained soil to thrive.",
+        types: [
+          { name: "Thomson Seedless", benefits: "High yield, popular variety", demerits: "Requires specific soil conditions" },
+          { name: "Black Grapes", benefits: "Rich in antioxidants, high market value", demerits: "Prone to fungal diseases" }
+        ],
+        specificNeeds: "Grapes need full sun and well-drained soils with a pH of 5.5 to 6.5. Regular irrigation is necessary, especially during dry spells.",
+        benefits: "Grapes are rich in vitamins C and K, and antioxidants like resveratrol that support heart health.",
+        demerits: "Grapevines are susceptible to diseases like powdery mildew and require careful maintenance."
+      },
+    
+      { 
+        id: 32,
+        name: "Watermelon", 
+        soil: "Sandy loam",
+        temp: "22-30°C",
+        water: "High",
+        season: "Summer",
+        image: "/assets/crops/watermelon.jpg",
+        description: "Watermelon is a popular summer fruit that grows best in hot climates. It requires plenty of water for optimal fruit development.",
+        types: [
+          { name: "Seedless Watermelon", benefits: "Convenient, high yield", demerits: "Requires specific cultivation techniques" },
+          { name: "Picnic Watermelon", benefits: "Large fruit, high water content", demerits: "Prone to fungal diseases" }
+        ],
+        specificNeeds: "Watermelon needs warm temperatures, a long growing season, and well-drained, sandy loam soils.",
+        benefits: "Watermelon is hydrating, packed with vitamins A and C, and a good source of antioxidants.",
+        demerits: "Watermelon is sensitive to drought, and pest infestations can affect fruit quality."
+      },
+    
+      { 
+        id: 33,
+        name: "Cantaloupe", 
+        soil: "Well-drained sandy loam",
+        temp: "20-30°C",
+        water: "High",
+        season: "Summer",
+        image: "/assets/crops/muskmelon.jpg",
+        description: "Cantaloupes are sweet, orange-fleshed melons grown primarily for fresh consumption. They thrive in warm climates and need regular watering.",
+        types: [
+          { name: "Galia Melon", benefits: "Sweet, rich flavor", demerits: "Requires specific soil and temperature conditions" }
+        ],
+        specificNeeds: "Cantaloupes require warm temperatures and well-drained soils. Regular irrigation is essential for optimal growth.",
+        benefits: "Cantaloupes are hydrating, packed with vitamins A and C, and a good source of dietary fiber.",
+        demerits: "Cantaloupes are sensitive to pests and diseases, requiring careful pest management."
+      },
+      { 
+        id: 34,
+        name: "Apple", 
+        soil: "Well-drained loamy",
+        temp: "10-20°C",
+        water: "Moderate",
+        season: "Winter",
+        image: "/assets/crops/apples.jpeg",
+        description: "Apples are one of the most widely grown fruits. They require a temperate climate with cool winters and moderate rainfall.",
+        types: [
+          { name: "Red Delicious", benefits: "Sweet, crisp, and popular variety", demerits: "Prone to diseases like apple scab" },
+          { name: "Granny Smith", benefits: "Tart, versatile for cooking", demerits: "Requires chill hours during winter" }
+        ],
+        specificNeeds: "Apples require well-drained soils with a pH range of 6 to 7. They also need a chilling period during winter for proper bud development.",
+        benefits: "Apples are rich in dietary fiber and vitamin C, promoting heart health and digestion.",
+        demerits: "Apples are susceptible to diseases such as apple scab, powdery mildew, and pests like aphids."
+      },
+    
+      { 
+        id: 35,
+        name: "Orange", 
+        soil: "Well-drained sandy loam",
+        temp: "25-35°C",
+        water: "Moderate",
+        season: "Summer",
+        image: "/assets/crops/orange.jpg",
+        description: "Oranges are a popular citrus fruit known for their sweetness and juiciness. They require a warm climate and well-drained soils.",
+        types: [
+          { name: "Navel Orange", benefits: "Seedless, sweet, and juicy", demerits: "Prone to fungal diseases" },
+          { name: "Valencia Orange", benefits: "Great for juicing, sweet and tangy", demerits: "Requires specific irrigation management" }
+        ],
+        specificNeeds: "Oranges require well-drained soils with a pH range of 6 to 7. Regular watering is essential, especially during fruit development.",
+        benefits: "Oranges are rich in vitamin C and antioxidants, supporting immune function and skin health.",
+        demerits: "Oranges are susceptible to pests and fungal diseases, which require proper management."
+      },
+    
+      { 
+        id: 36,
+        name: "Papaya", 
+        soil: "Sandy loam",
+        temp: "25-30°C",
+        water: "High",
+        season: "Summer",
+        image: "/assets/crops/papaya.jpeg",
+        description: "Papayas are tropical fruits that thrive in warm climates. They are rich in vitamins, enzymes, and fiber.",
+        types: [
+          { name: "Red Papaya", benefits: "Sweet, high in antioxidants", demerits: "Sensitive to cold temperatures" },
+          { name: "Yellow Papaya", benefits: "Milder flavor, faster-growing", demerits: "Prone to pests" }
+        ],
+        specificNeeds: "Papayas grow best in sandy loam soils with good drainage. They need a warm climate and regular watering to thrive.",
+        benefits: "Papayas are an excellent source of vitamin C, antioxidants, and digestive enzymes like papain.",
+        demerits: "Papayas are sensitive to frost and can suffer from pests like aphids and whiteflies."
+      },
+    
+      { 
+        id: 37,
+        name: "Coconut", 
+        soil: "Well-drained sandy loam",
+        temp: "27-30°C",
+        water: "High",
+        season: "All year",
+        image: "/assets/crops/coconut.jpg",
+        description: "Coconut trees thrive in tropical coastal regions with abundant sunlight and water. They provide both food and industrial products.",
+        types: [
+          { name: "Tall Coconut", benefits: "Produces large coconuts, high water yield", demerits: "Takes time to mature" },
+          { name: "Dwarf Coconut", benefits: "Faster maturation, compact size", demerits: "Lower yield per tree" }
+        ],
+        specificNeeds: "Coconuts require sandy, well-drained soils and plenty of sunlight. Regular watering is essential, especially during dry spells.",
+        benefits: "Coconuts provide water, oil, and fiber, which are used in food, cosmetics, and other industries.",
+        demerits: "Coconuts need a long time to mature and are susceptible to pests like red palm weevils."
+      },
+    
+      { 
+        id: 38,
+        name: "Jute", 
+        soil: "Loamy",
+        temp: "25-35°C",
+        water: "High",
+        season: "Kharif",
+        image: "/assets/crops/jute.jpg",
+        description: "Jute is a fiber crop grown for its strong, biodegradable fibers. It requires a warm climate and abundant water during its growth period.",
+        types: [
+          { name: "White Jute", benefits: "High-quality fiber, widely used in textile industry", demerits: "Requires abundant water" },
+          { name: "Tossa Jute", benefits: "High yield, resistant to pests", demerits: "Lower fiber quality than white jute" }
+        ],
+        specificNeeds: "Jute requires warm temperatures and abundant water for proper growth. It grows best in fertile, well-drained loamy soils.",
+        benefits: "Jute is a sustainable source of fiber, used for making ropes, sacks, and eco-friendly materials.",
+        demerits: "Jute is sensitive to drought and requires careful irrigation management during dry periods."
+      },
+    
+      { 
+        id: 39,
+        name: "Coffee", 
+        soil: "Well-drained loamy",
+        temp: "15-24°C",
+        water: "Moderate",
+        season: "All year",
+        image: "/assets/crops/coffee.jpeg",
+        description: "Coffee is a popular beverage crop grown in tropical climates. It requires moderate temperatures and well-drained soils to thrive.",
+        types: [
+          { name: "Arabica Coffee", benefits: "Higher quality, smoother taste", demerits: "Sensitive to pests and diseases" },
+          { name: "Robusta Coffee", benefits: "Higher yield, stronger flavor", demerits: "Lower quality than arabica" }
+        ],
+        specificNeeds: "Coffee plants thrive in shaded areas with well-drained, fertile soils and moderate rainfall. They prefer temperatures between 15°C and 24°C.",
+        benefits: "Coffee is a rich source of caffeine, antioxidants, and has numerous health benefits like improving mental alertness.",
+        demerits: "Coffee plants are susceptible to diseases like coffee leaf rust and require careful pest control."
+      }
+  
 ];

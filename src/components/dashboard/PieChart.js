@@ -44,7 +44,7 @@ const PieChart = ({ data }) => {
   };
 
   return (
-    <div className="h-64px w-72 bg-white p-4 mt-4 shadow rounded">
+    <div className="h-96 w-80 bg-white  mt-4 shadow rounded">
       <h2 className="text-sm font-semibold mb-2">Pie Chart</h2>
       <Pie data={chartData} options={options} />
     </div>
