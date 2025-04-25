@@ -1,5 +1,6 @@
 import { Outlet, Link } from "react-router-dom";
 import { FaHome, FaNewspaper, FaLeaf, FaRegLightbulb, FaCog, FaSignOutAlt } from 'react-icons/fa'; 
+import ChatBot from "./chatbox/chatBot";
 
 const MainLayout = () => (
   <div className="flex h-screen bg-gray-200">
@@ -58,6 +59,7 @@ const MainLayout = () => (
     {/* Main Content */}
     <main className="flex-1 bg-gray-100 p-6 overflow-y-auto">
       <Outlet />
+      <ChatBot />
     </main>
   </div>
 );
