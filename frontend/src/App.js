@@ -16,12 +16,17 @@ import axios from "axios";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
+  
   useEffect(() => {
     axios.get("http://localhost:5000/api/news")
-      .then(res => setArticles(res.data))
-      .catch(err => console.error("Error loading articles", err));
+      .then(res => {
+        setArticles(res.data);
+      })
+      .catch(err => {
+        console.error("Error loading articles", err);
+        console.log("API is not available or there was an error connecting.");
+      });
   }, []);
-
   return (
     <Router>
       <Routes>

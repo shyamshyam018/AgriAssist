@@ -47,7 +47,7 @@ Respond only in ${languages[lang] || 'English'}.
   return basePrompt;
 }
 
-router.post('/', async (req, res) => {
+router.post('/api/chat', async (req, res) => {
   const { query, language = 'en' } = req.body;
 
   if (!query) {
