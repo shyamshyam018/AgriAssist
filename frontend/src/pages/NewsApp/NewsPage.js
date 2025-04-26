@@ -14,7 +14,7 @@ const NewsPage = ({ articles }) => {
     <div className="bg-gray-100 min-h-screen">
       {/* Navbar */}
       <div className="bg-white shadow-md mb-6">
-          <NewsNavbar />
+        <NewsNavbar />
       </div>
 
       {/* Main Content */}

@@ -70,12 +70,14 @@ const Chatbot = () => {
 
   const sendMessage = async () => {
     if (!input.trim()) return;
-
+  
     const userMsg = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
-
+  
     try {
+      console.log("Sending message to backend..."); // ✅
+  
       const response = await fetch("http://localhost:5000/api/chat", {
         method: 'POST',
         headers: {
@@ -86,22 +88,26 @@ const Chatbot = () => {
           language: selectedLanguageCode,
         }),
       });
-
+  
       if (!response.ok) {
+        console.warn("Non-OK response", response.status); // ✅
         throw new Error('Network response was not ok');
       }
-
+  
       const data = await response.json();
+      console.log("Received response:", data); // ✅
+  
       const botMsg = { sender: "bot", text: data.response };
       setMessages((prev) => [...prev, botMsg]);
     } catch (err) {
-      console.error("Error calling Google Gemini API:", err);
+      console.error("Error calling Gemini API:", err);
       setMessages((prev) => [
         ...prev,
         { sender: "bot", text: currentLanguage.errorMessage || "Sorry, something went wrong." }
       ]);
     }
   };
+  
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

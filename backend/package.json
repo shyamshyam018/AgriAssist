@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -10,6 +11,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google-ai/generativelanguage": "^3.1.0",
+    "@google/generative-ai": "^0.24.0",
     "axios": "^1.9.0",
     "cheerio": "^1.0.0",
     "cors": "^2.8.5",
@@ -17,6 +20,7 @@
     "express": "^5.1.0",
     "mongoose": "^8.13.2",
     "node-cron": "^3.0.3",
+    "nodemon": "^3.1.10",
     "openai": "^4.96.0"
   }
 }
