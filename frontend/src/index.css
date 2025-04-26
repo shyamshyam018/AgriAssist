@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Hide ugly Google Translate top bar */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+  body {
+    top: 0px !important;
+  }
+  
+  /* Hide the "powered by" stuff if you want */
+  .goog-logo-link {
+    display: none !important;
+  }
+  .goog-te-gadget {
+    font-size: 0px;
+  }
+  
+  /* Make the dropdown cleaner */
+  #google_translate_element select {
+    background: #f0fdf4;
+    border: 1px solid #34d399;
+    padding: 8px;
+    border-radius: 0.5rem;
+    font-size: 14px;
+    color: #065f46;
+    outline: none;
+  }
+  

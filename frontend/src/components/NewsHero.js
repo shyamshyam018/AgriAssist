@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
-import '../styles/NewsHero.css'
+import '../styles/NewsHero.css';
 
-const NewsHero = () => {
+const NewsHero = ({ articles = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    { url: "/assets/images/NewsBanner1.jpg", caption: "Rural Farmers Contributiion Rise" },
-    { url: "/assets/images/NewsBanner2.jpg", caption: "Reduced Reserve Prices" },
-    { url: "/assets/images/NewsBanner3.jpg", caption: "FPO Demands Rise" },
+  // Static images for the slider
+  const staticImages = [
+    { url: "/assets/images/agriinovate.jpeg", caption: "" },
+    { url: "/assets/images/kisanmela.jpg", caption: "" },
+    { url: "/assets/images/wheat.jpeg", caption: "" },
   ];
 
-  const marqueeText = [
-    "Breaking News: Agriculture trends reshaping the industry!",
-    "Market Updates: Prices for grains are soaring this season.",
-    "Latest Insights: Sustainable farming practices gain momentum.",
-  ];
+  // Inject dynamic titles into the static image objects
+  const images = staticImages.map((img, index) => ({
+    ...img,
+    caption: articles[index] ? articles[index].title : ""
+  }));
+
+  const marqueeText = articles.map(article => article.title);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -28,8 +31,10 @@ const NewsHero = () => {
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 3000);
-    return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
+
+  if (images.length === 0) return null;
 
   return (
     <div className="relative mb-5">
@@ -41,7 +46,7 @@ const NewsHero = () => {
           className="w-full h-full object-cover opacity-80"
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-          <h2 className="text-white text-4xl font-bold">
+          <h2 className="text-white text-4xl font-bold text-center px-4">
             {images[currentIndex].caption}
           </h2>
         </div>

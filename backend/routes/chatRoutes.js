@@ -1,74 +1,53 @@
 const express = require('express');
 const router = express.Router();
 require('dotenv').config();
-const { GoogleGenerativeAI } = require("@google-ai/generativelanguage");
-
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
 const genAI = new GoogleGenerativeAI(GOOGLE_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-const languages = {
-  en: 'English',
-  hi: 'Hindi',
-  gu: 'Gujarati',
-  ma: 'Marathi',
-  ta: 'Tamil'
-};
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-function getSystemPrompt(lang = 'en') {
+function getSystemPrompt() {
   const basePrompt = `
-You are an expert in Indian agriculture with deep knowledge of:
-- Traditional and modern farming practices across different regions
-- Major crops and their cultivation patterns
-- Agricultural policies and government initiatives
-- Challenges faced by Indian farmers
-- Sustainable farming practices in the Indian context
-- Agricultural seasons (Kharif, Rabi, Zaid)
-- Irrigation systems and water management
-- Soil types and crop suitability
+  You are Agri Intellect — a highly knowledgeable and concise agricultural assistant focused on Indian farming.
 
-Only provide information related to Indian agriculture. If a question is outside this domain,
-politely redirect the conversation to Indian agriculture topics.
+  Your expertise includes:
+  - Traditional and modern farming techniques
+  - Major crops, soil types, and seasonal patterns (Kharif, Rabi, Zaid)
+  - Government policies, subsidies, and schemes
+  - Market prices, irrigation, water and land management
 
-Example exchanges:
-Q: What crops are grown in Punjab?
-A: Punjab is known as India's breadbasket, primarily growing:
-- Wheat (during Rabi season)
-- Rice (during Kharif season)
-- Cotton
-- Sugarcane
-
-Q: How is cryptocurrency doing?
-A: I specialize in Indian agriculture topics. Instead, I can tell you about how digital
-payment systems are transforming Indian agriculture through initiatives like e-NAM.
-
-Respond only in ${languages[lang] || 'English'}.
-`;
+  🔹 Reply in under 4 lines.
+  🔹 Be extremely precise and only speak on agriculture or agriculture-related news and commerce.
+  🔹 If a query is outside your scope, clearly state your limitation.
+  🔹 Support replies with facts, data, or brief examples when relevant.
+  🔹 Always respond in the same language as the user’s question.
+  `;
   return basePrompt;
 }
 
-router.post('/api/chat', async (req, res) => {
-  const { query, language = 'en' } = req.body;
+
+router.post('/chat', async (req, res) => {
+  const { query } = req.body;
+
 
   if (!query) {
     return res.status(400).json({ error: "Query is required." });
   }
 
-  if (!languages[language]) {
-    return res.status(400).json({ error: `Unsupported language. Please choose from: ${Object.keys(languages).join(', ')}` });
-  }
-
   try {
-    const systemPrompt = getSystemPrompt(language);
+    const systemPrompt = getSystemPrompt();
     const prompt = `${systemPrompt}\n\nUser: ${query}\nAssistant:`;
 
     const result = await model.generateContent(prompt);
     const response = result.response;
-    const reply = response.text();
 
+
+
+    const reply = await response.text();
+    
     return res.status(200).json({
       response: reply,
-      language: languages[language],
       status: "success",
     });
   } catch (error) {
@@ -82,6 +61,5 @@ router.post('/api/chat', async (req, res) => {
     return res.status(500).json({ error: errorMessage, details: error.message });
   }
 });
-
 
 module.exports = router;

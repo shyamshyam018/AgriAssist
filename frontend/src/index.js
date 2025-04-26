@@ -12,3 +12,9 @@ root.render(
 );
 
 
+window.onerror = function (message, source, lineno, colno, error) {
+  console.warn('Uncaught error:', { message, source, lineno, colno, error });
+
+  if (message === 'Script error.') return true; 
+};
+

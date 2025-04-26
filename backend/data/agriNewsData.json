@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "India's Wheat Procurement Begins Strong, Signaling Robust Harvest",
+    "description": "India has purchased 2.08 million metric tons of new-season wheat since March 15, up 44.4% from last year, indicating a robust crop that will help shore up depleted reserves and avoid imports.",
+    "imageUrl": "https://example.com/images/wheat_procurement.jpg",
+    "sourceUrl": "https://www.reuters.com/markets/commodities/indias-wheat-procurement-begins-strong-signalling-robust-harvest-2025-04-09/"
+  },
+  {
+    "id": 2,
+    "title": "Tractor and Fertilizer Sales Reflect Strong Farm Sector Growth",
+    "description": "Sales of tractors and fertilizers have shown impressive growth in 2024-25, serving as reliable indicators of a strong performance in India's agricultural sector.",
+    "imageUrl": "https://example.com/images/tractor_fertilizer_sales.jpg",
+    "sourceUrl": "https://indianexpress.com/article/explained/explained-economics/how-tractor-and-fertiliser-sales-data-act-as-a-mirror-for-farm-sector-growth-9966228/"
+  },
+  {
+    "id": 3,
+    "title": "SKUAST-K Conducts Seed Distribution Program for Tribal Farmers",
+    "description": "The KVK Budgam, in collaboration with KVK Pulwama, organized a Seed Distribution cum Awareness Programme for tribal farmers in Budgam, aiming to enhance agricultural practices in the region.",
+    "imageUrl": "https://example.com/images/skuast_seed_distribution.jpg",
+    "sourceUrl": "https://kashmirreader.com/2025/04/26/skuast-k-conducts-awareness-cum-seed-distribution-prog-for-tribal-farmers/"
+  },
+  {
+    "id": 4,
+    "title": "Govt’s Codar Mango Farm Gets Exclusive Plot for Goan Varieties",
+    "description": "In an effort to conserve and popularize indigenous mango varieties of Goa, the Agriculture Department has developed a dedicated plot at the Codar farm.",
+    "imageUrl": "https://example.com/images/codar_mango_farm.jpg",
+    "sourceUrl": "https://www.navhindtimes.in/2025/04/26/goanews/govts-codar-mango-farm-gets-exclusive-plot-for-goan-varieties/"
+  },
+  {
+    "id": 5,
+    "title": "PJTAU and BITS Pilani Partner to Bring AI into Agriculture",
+    "description": "Professor Jayashankar Telangana State Agricultural University and BITS Pilani have partnered to integrate artificial intelligence into farming practices, aiming to revolutionize agriculture through technology.",
+    "imageUrl": "https://example.com/images/ai_in_agriculture.jpg",
+    "sourceUrl": "https://www.telanganatribune.com/pjtau-and-bits-pilani-partner-to-bring-ai-into-agriculture/"
+  },
+  {
+    "id": 6,
+    "title": "India Harvests 38% of Wheat Area So Far in 2025–26 Season",
+    "description": "India has harvested 38% of its estimated 32 million hectares of wheat for the 2025-26 marketing season, with favorable conditions reported across key wheat-producing states.",
+    "imageUrl": "https://example.com/images/wheat_harvest.jpg",
+    "sourceUrl": "https://m.economictimes.com/news/economy/agriculture/india-harvests-38-of-wheat-area-so-far-in-202526-season-says-agriculture-minister-chouhan/articleshow/120261788.cms"
+  },
+  {
+    "id": 7,
+    "title": "Farmers' Conclave cum Kisan Mela Held at ICAR Complex",
+    "description": "A 'One Day Farmers' Conclave cum Kisan Mela' was successfully conducted at the ICAR complex in Lamphelpat, aiming to disseminate knowledge and innovations among farmers.",
+    "imageUrl": "https://example.com/images/kisan_mela.jpg",
+    "sourceUrl": "https://e-pao.net/ge.asp?heading=21&src=260425"
+  },
+  {
+    "id": 8,
+    "title": "Agrinnovate India Pays Dividend of Rs 1.42 Crore for FY 2023–24",
+    "description": "Agrinnovate India has paid a dividend of Rs 1.42 crore for the financial year 2023–24, reflecting its commitment to promoting agricultural innovations.",
+    "imageUrl": "https://example.com/images/agrinnovate_dividend.jpg",
+    "sourceUrl": "https://www.fnbnews.com/Top-News/agrinnovate-india-pays-dividend-of-rs-142-crore-for-fy-202324-82574"
+  }
+]
