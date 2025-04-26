@@ -9,7 +9,7 @@ import NewsNavbar from "../components/NewsNavbar";
 const NewsApp = ({ articles }) => (
   <div>
     <NewsNavbar />
-    <NewsHero />
+    <NewsHero articles={articles}/>
     <NewsList articles={articles} />
     <Footer />
   </div>
